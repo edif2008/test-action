@@ -7,9 +7,7 @@ inputs:
     required: true
     default: 'World'
 runs:
-  using: "composite"
-  steps:
-    - id: load
-      run: |
-        ${{ github.action_path }}/entrypoint.sh "${{ inputs.who-to-greet }}"
-      shell: bash
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
