@@ -9,6 +9,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: |
+    - id: load
+      run: |
         ${{ github.action_path }}/entrypoint.sh ${{ inputs.who-to-greet }}
       shell: bash
