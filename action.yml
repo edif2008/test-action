@@ -9,9 +9,9 @@ inputs:
 outputs:
   time: # id of output
     description: 'The time we greeted you'
-    value: {{ steps.load.outputs.time }}
+    value: ${{ steps.load.outputs.time }}
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - id: load
       run: |
