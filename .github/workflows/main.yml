@@ -7,13 +7,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Configure 1Password Connect
-        uses: edif2008/load-secrets-action/configure@v1.3.1 # 1password/load-secrets-action/configure@<version>
+        uses: edif2008/load-secrets-action/configure@v1.1.1 # 1password/load-secrets-action/configure@<version>
         with:
           connect-host: https://7e34-2001-1c00-b0e-fc00-bc9f-a36d-7933-8d60.ngrok.io
           connect-token: ${{ secrets.OP_CONNECT_TOKEN }}
       - name: Load secrets
         id: load_secrets
-        uses: edif2008/load-secrets-action@v1.3.1 # 1password/load-secrets-action@<version>
+        uses: edif2008/load-secrets-action@v1.1.1 # 1password/load-secrets-action@<version>
         env:
           SECRET: op://acceptance-tests/test-secret/password
           SECRET_IN_SECTION: op://acceptance-tests/test-secret/test-section/password
