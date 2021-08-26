@@ -20,8 +20,8 @@ jobs:
           APP_TITLE: op://acceptance-tests/webapp/title
       - name: Push image to Docker Hub
         env:
-          APP_USER: ${{ steps.load_secrets.outputs.APP_TITLE }}
+          APP_TITLE: ${{ steps.load_secrets.outputs.APP_TITLE }}
         run: |
           docker login -u ${{ steps.load_secrets.outputs.DOCKER_USERNAME }} -p ${{ steps.load_secrets.outputs.DOCKER_PASSWORD }}
-          docker build -t testopaction/example .
+          docker build -t testopaction/example --build-arg APP_TITLE=$APP_TITLE.
           docker push testopaction/example
