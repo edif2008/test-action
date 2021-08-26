@@ -17,7 +17,7 @@ jobs:
         env:
           DOCKER_USERNAME: op://acceptance-tests/docker/username
           DOCKER_PASSWORD: op://acceptance-tests/docker/password
-          APP_TITLE: op://acceptance-test/webapp/title
+          APP_TITLE: op://acceptance-tests/webapp/title
       - name: Push image to Docker Hub
         env:
           APP_USER: ${{ steps.load_secrets.outputs.APP_TITLE }}
