@@ -7,4 +7,4 @@ WORKDIR /app
 COPY *.go ./
 
 RUN go build app.go
-CMD["./app", "$APP_TITLE"]
+CMD ["./app", "$APP_TITLE"]
