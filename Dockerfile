@@ -6,5 +6,5 @@ ENV APP_TITLE ${APP_TITLE}
 WORKDIR /app
 COPY *.go ./
 
-RUN go build app.go && \
-    ./app ${APP_TITLE}
+RUN go build app.go
+CMD["./app", "$APP_TITLE"]
