@@ -7,4 +7,4 @@ WORKDIR /app
 COPY *.go ./
 
 RUN go build app.go
-ENTRYPOINT ["sh", "-c", "./app $APP_TITLE"]
+ENTRYPOINT ["sh", "-c", './app "$APP_TITLE"']
