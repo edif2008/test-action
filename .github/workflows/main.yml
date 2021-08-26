@@ -9,7 +9,7 @@ jobs:
       - name: Configure 1Password Connect
         uses: edif2008/load-secrets-action/configure@v1.2.2 # 1password/load-secrets-action/configure@<version>
         with:
-          connect-host: https://7e34-2001-1c00-b0e-fc00-bc9f-a36d-7933-8d60.ngrok.io
+          connect-host: https://edf8-2001-1c00-b0b-dd00-3c41-1978-f314-b4f4.ngrok.io
           connect-token: ${{ secrets.OP_CONNECT_TOKEN }}
       - name: Load secrets
         id: load_secrets
