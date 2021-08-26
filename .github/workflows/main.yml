@@ -15,13 +15,13 @@ jobs:
         id: load_secrets
         uses: edif2008/load-secrets-action@v1.2.2 # 1password/load-secrets-action@<version>
         env:
-          SECRET: op://acceptance-tests/test-secret/password
-          SECRET_IN_SECTION: op://acceptance-tests/test-secret/test-section/password
-          UNMASKED_VALUE: op://acceptance-tests/test-secret/test-section/username
-          MULTILINE_SECRET: op://acceptance-tests/multiline-secret/notesPlain
-      - name: Assert test secret values
+          DOCKER_USERNAME: op://acceptance-tests/docker/username
+          DOCKER_PASSWORD: op://acceptance-tests/docker/password
+          APP_TITLE: op://acceptance-test/webapp/title
+      - name: Push image to Docker Hub
         env:
-          SECRET: ${{ steps.load_secrets.outputs.SECRET }}
-          SECRET_IN_SECTION: ${{ steps.load_secrets.outputs.SECRET_IN_SECTION }}
-          MULTILINE_SECRET: ${{ steps.load_secrets.outputs.MULTILINE_SECRET }}
-        run: ./tests/assert-env-set.sh
+          APP_USER: ${{ steps.load_secrets.outputs.APP_TITLE }}
+        run: |
+          docker login -u ${{ steps.load_secrets.outputs.DOCKER_USERNAME }} -p ${{ steps.load_secrets.outputs.DOCKER_PASSWORD }}
+          docker build -t testopaction/example
+          docker push testopaction/example
