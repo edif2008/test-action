@@ -23,5 +23,5 @@ jobs:
           APP_USER: ${{ steps.load_secrets.outputs.APP_TITLE }}
         run: |
           docker login -u ${{ steps.load_secrets.outputs.DOCKER_USERNAME }} -p ${{ steps.load_secrets.outputs.DOCKER_PASSWORD }}
-          docker build -t testopaction/example
+          docker build -t testopaction/example .
           docker push testopaction/example
